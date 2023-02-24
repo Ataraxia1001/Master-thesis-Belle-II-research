@@ -1,0 +1,15 @@
+# Unix submit description file
+# sleep.sub -- simple sleep job
+
+executable              = testJob.sh 
+universe                = vanilla
+getenv                  = true
+# transfer_input_files    = fileList_part.txt, my_steering_file.py
+arguments               = $(Bob) /nfs/dust/belle2/user/jjjy213/output_sig/rootoutput_$(Cluster)_$(Process).root
+log                     = /nfs/dust/belle2/user/jjjy213/output_sig/log_$(Cluster).$(Process).log
+output                  = /nfs/dust/belle2/user/jjjy213/output_sig/outfile_$(Cluster).$(Process).txt
+error                   = /nfs/dust/belle2/user/jjjy213/output_sig/errors_$(Cluster).$(Process).txt
+
+# request_memory          = 16000MB
+queue Bob from sigFileList.txt
+
